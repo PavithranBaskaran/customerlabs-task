@@ -1,0 +1,81 @@
+.popup-wrapper {
+  position: absolute;
+  top: 8%;
+  left: 37%;
+  display: none;
+}
+
+.popup-container {
+  height: 500px;
+  width: 500px;
+  background-color: white;
+  display: flex;
+  overflow-y: scroll;
+
+}
+.popup-nav {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #74c6cf;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.popup-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+label {
+  margin-bottom: 10px;
+}
+#schema {
+  padding: 10px;
+}
+.link {
+  cursor: pointer;
+  margin-top: 10px;
+  color: #206269;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.border {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid blue;
+  display: flex;
+  flex-direction: column;
+}
+#schema2 {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.btn-grp {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sub-btn{
+  border: none;
+  padding: 10px;
+  background-color: #206269;
+  color: white;
+  cursor: pointer;
+}
+
+.can-btn{
+  border: none;
+  color: white;
+  background-color: rgb(208, 11, 11);
+  cursor: pointer;
+}
