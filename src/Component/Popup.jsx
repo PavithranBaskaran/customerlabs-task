@@ -2,6 +2,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import React from "react";
 import { useState } from "react";
+import { config } from "../config";
 import "../CSS/popup.css";
 import { dropdownData } from "../data";
 function Popup({ handlePopup }) {
@@ -33,7 +34,7 @@ function Popup({ handlePopup }) {
       });
       try {
         await axios.post(
-          "https://webhook.site/9ed7d7ae-c711-41e2-b520-360e73bb26af/",
+          `${config.api}`,
           values
         );
         alert("Data Posted Successfully");
