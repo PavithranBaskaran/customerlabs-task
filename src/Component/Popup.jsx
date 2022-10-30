@@ -5,6 +5,7 @@ import { useState } from "react";
 import { config } from "../config";
 import "../CSS/popup.css";
 import { dropdownData } from "../data";
+import { MdDelete } from "react-icons/md";
 function Popup({ handlePopup }) {
   let [schema, setSchema] = useState([]);
   let formik = useFormik({
@@ -71,6 +72,11 @@ function Popup({ handlePopup }) {
       setSchema([...schema]);
     }
   };
+  let handleDelete = (ele) => {
+    let index = schema.indexOf(ele);
+    schema.splice(index, 1);
+    setSchema([...schema]);
+  };
   return (
     <>
       <div className="popup-wrapper">
@@ -103,21 +109,29 @@ function Popup({ handlePopup }) {
                 {schema.map((sitem, key) => {
                   return (
                     <>
-                      <select
-                        // name="schema"
-                        id="schema2"
-                        onChange={(e) => handleChange(e, sitem)}
-                        value={sitem}
-                        key={key}
-                      >
-                        {dropdownData.map((item, key) => {
-                          return (
-                            <option value={`${item.value}`} key={key}>
-                              {item.label}
-                            </option>
-                          );
-                        })}
-                      </select>
+                      <div className="schema-wrapper">
+                        <select
+                          // name="schema"
+                          id="schema2"
+                          onChange={(e) => handleChange(e, sitem)}
+                          value={sitem}
+                          key={key}
+                        >
+                          {dropdownData.map((item, key) => {
+                            return (
+                              <option value={`${item.value}`} key={key}>
+                                {item.label}
+                              </option>
+                            );
+                          })}
+                        </select>
+                        <div>
+                          <MdDelete
+                            onClick={() => handleDelete(sitem)}
+                            style={{ fontSize: "25px", cursor: "pointer" }}
+                          />
+                        </div>
+                      </div>
                     </>
                   );
                 })}
