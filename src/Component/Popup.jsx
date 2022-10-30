@@ -33,10 +33,7 @@ function Popup({ handlePopup }) {
         }
       });
       try {
-        await axios.post(
-          `${config.api}`,
-          values
-        );
+        await axios.post(`${config.api}`, values);
         alert("Data Posted Successfully");
         resetForm();
       } catch (error) {
@@ -103,7 +100,7 @@ function Popup({ handlePopup }) {
             </label>
             {schema.length != 0 ? (
               <div className="border">
-                {schema.map((sitem) => {
+                {schema.map((sitem, key) => {
                   return (
                     <>
                       <select
@@ -111,10 +108,11 @@ function Popup({ handlePopup }) {
                         id="schema2"
                         onChange={(e) => handleChange(e, sitem)}
                         value={sitem}
+                        key={key}
                       >
-                        {dropdownData.map((item) => {
+                        {dropdownData.map((item, key) => {
                           return (
-                            <option value={`${item.value}`}>
+                            <option value={`${item.value}`} key={key}>
                               {item.label}
                             </option>
                           );
@@ -139,8 +137,12 @@ function Popup({ handlePopup }) {
                     return item;
                   }
                 })
-                .map((item) => {
-                  return <option value={`${item.value}`}>{item.label}</option>;
+                .map((item, key) => {
+                  return (
+                    <option key={key} value={`${item.value}`}>
+                      {item.label}
+                    </option>
+                  );
                 })}
             </select>
             <a className="link" onClick={() => addSchema(formik.values.select)}>
